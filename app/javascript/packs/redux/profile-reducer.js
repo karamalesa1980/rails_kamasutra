@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+const SET_PROFILE = 'SET_PROFILE'
 
 let initialState = {
   posts: [
@@ -7,6 +8,7 @@ let initialState = {
     {id: 2, post: 'Hi Anton', like: '25'},
     {id: 3, post: 'Hi Tema', like: '5'}
   ],
+  profile: [],
   
   newpostText: 'karamalesa!!!',
 }
@@ -26,7 +28,11 @@ const profileReducer = (state = initialState, action) => {
         newpostText: action.newtext
       }; // копируем state
       
-    }  
+    } 
+    
+    case SET_PROFILE: 
+      return {...state, profile: action.profile} 
+
     default:              // default: не забывай а то ошибка.
       return state;  
   }
@@ -48,3 +54,8 @@ export const updatenewpostTextactionCreator = (text) => {
   }
 }
 
+export const setProfile = (profile) => {
+  return {
+    type: SET_PROFILE, profile
+  }
+}

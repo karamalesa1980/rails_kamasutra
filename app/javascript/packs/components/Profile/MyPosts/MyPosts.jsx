@@ -16,8 +16,7 @@ const MyPosts = (props) => {
     props.updatenewpostText(text);   
   }
 
-  return (
-    <div>
+  return ( <div>
     
       <div>
         My posts

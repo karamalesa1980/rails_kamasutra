@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_20_141940) do
+ActiveRecord::Schema.define(version: 2019_12_24_162554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "profiles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "about_me"
+    t.json "contacts"
+    t.boolean "lookingForAJob", default: true
+    t.text "lookingForAJobDescription"
+    t.string "fullname", null: false
+    t.json "photos"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "fullname"
@@ -26,4 +39,5 @@ ActiveRecord::Schema.define(version: 2019_12_20_141940) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "profiles", "users"
 end

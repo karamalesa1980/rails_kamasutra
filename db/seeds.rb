@@ -27,13 +27,6 @@ users = User.create([
       city: 'Severodonetsk',
       country: 'Ukraine'
     },
-    { fullname: 'Misha P.',
-      email: 'misha@gmail.com',
-      avatarUrl: 'https://vokrug.tv/pic/person/4/a/0/6/4a0628baf22d46d29e456a58892d3291.jpeg',
-      status: 'I am a Web_Developer too',
-      city: 'Severodonetsk',
-      country: 'Ukraine'
-    },
     { fullname: 'Misha1 P.',
       email: 'misha1@gmail.com',
       avatarUrl: 'https://vokrug.tv/pic/person/4/a/0/6/4a0628baf22d46d29e456a58892d3291.jpeg',
@@ -225,3 +218,21 @@ users = User.create([
     },
     
   ]) 
+
+  profiles = Profile.create([
+    { user_id: 1,
+      about_me: 'I am a Web_Developer',
+      contacts: {
+        facebook: 'https://www.facebook.com/yura.poznokos',
+        ok: 'https://ok.ru/svoy.santekhnik',
+      },
+      lookingForAJob: true,
+      lookingForAJobDescription: 'I need job',
+      fullname: 'karamalesa',
+      photos: {
+        small: '',
+        large: '',
+      },
+
+    },
+    ])

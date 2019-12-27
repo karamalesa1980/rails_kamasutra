@@ -1,8 +1,19 @@
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      get 'users/index'
+      post 'users/create'
+      get '/show/:id', to: 'users#show'
+      delete '/destroy/:id', to: 'users#destroy'  
+    end
+  end
+  
   root 'pages#index'
-  get 'users_json', to: 'pages#users_json'
-  get 'users', to: 'pages#index'
-  get 'dialogs', to: 'pages#index'
-  get 'profile', to: 'pages#index'
+  get '/*path' => 'pages#index'
+  
+  
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
+ 
